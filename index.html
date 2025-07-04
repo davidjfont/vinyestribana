@@ -16,6 +16,7 @@
       margin: 0;
       font-family: 'Helvetica Neue', sans-serif;
       background-color: var(--clar);
+      background-image: 'fons-amb-noms-inventats.png';
       color: var(--fosc);
       display: flex;
       flex-direction: column;
@@ -106,23 +107,74 @@
       header h1 { font-size: 2rem; }
       header p { font-size: 1rem; }
     }
+    .logo {
+      max-width: 15%;
+      left: 50%;
+    }
+.contenedor {
+      text-align: center;
+      padding-top: -30vh; /* opcional: para centrarlo un poco verticalmente */
+    }
+
+.logo {
+      max-width: 25%;
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Vi rebel de vinyes catalanes</h1>
-    <p>Primera embotellada: ELS 4 GATS (ed. limitada)</p>
+  <div class="contenedor">
+        <img src="vinyes-tribana-logo.png" class="logo" />
+  </div>
+  <header>    
+    <h1>Vi de cultiu responsable i respectuòs</h1>
+    <p>Primera embotellada: MACABEU 2026 (ed. Numerada)</p>
   </header>
-
   <main>
-    <p>Una vinya sense amos. Un vi sense por. Apunta’t per reservar la teva ampolla abans que s’esgoti.</p>
+    <p>Una Vinya ecològica catalana que produeix vi de la terra. Plena de vida i molt rebel. </p>
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd3l9mwutmuDLsZ4prTBUaRCAfE_q4M5xo-q-4ggYn5snuYiw/viewform?embedded=true" width="100%" ax-width="640" height="1080" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
 
     <div class="mockup">
       <img src="vinyestribana002.png" alt="Ampolla rebel – Els 4 Gats" />
+      <img src="images.png" class="logo" />
     </div>
   </main>
+  <section style="max-width: 800px; padding: 2rem; text-align: left; font-size: 1.1rem;">
+    <h2 style="font-size: 2rem; color: var(--vermell); margin-bottom: 1rem;">Les estacions del vi</h2>
+    <p>
+      A <strong>Vinyes Tribana</strong>, el nostre vi neix de la terra i del temps. Cadascuna de les quatre estacions marca una etapa vital en la vida de la vinya. Comprendre aquest cicle és entendre l’ànima del vi.
+    </p>
 
+    <h3 style="margin-top: 1.5rem; color: var(--fosc);">🌱 Primavera – El despertar de la vinya</h3>
+    <p>
+      Amb els primers raigs de sol càlid, les <strong>gemmes dormides esclaten</strong>. És el moment de la brotació, quan les vinyes, encara humils, comencen el seu camí vital. Es realitza la <em>poda en verd</em> per guiar la força cap als millors brots. La vinya és fràgil: una gelada pot arruïnar tot l’any. Però també és pura esperança.
+    </p>
+
+    <h3 style="margin-top: 1.5rem; color: var(--fosc);">🌞 Estiu – Creixement i maduració</h3>
+    <p>
+      El sol fa créixer les fulles i els sarments. Les flors s’obren en silenci durant la <strong>floració</strong>, moment decisiu per a la futura collita. Després arriba l’<strong>enverament</strong>, quan els grans canvien de color: és el senyal que comença la maduració. Tot és intensitat, fotosíntesi i equilibri. Com més calor, més sucre; però cal mantenir la frescor.
+    </p>
+
+    <h3 style="margin-top: 1.5rem; color: var(--fosc);">🍇 Tardor – Collita i celebració</h3>
+    <p>
+      El temps s’alenteix. Les vinyes arriben a la seva plenitud. El sucre es concentra, els tanins s’arrodoneixen. És temps de <strong>verema</strong>: cada raïm es recull amb cura, a mà, triant el moment òptim de maduració. És la culminació d’un any sencer de vigilància i passió. La terra torna a parlar a través del most.
+    </p>
+
+    <h3 style="margin-top: 1.5rem; color: var(--fosc);">❄️ Hivern – Repòs i saviesa</h3>
+    <p>
+      Les vinyes perden les fulles i entren en <strong>repòs vegetatiu</strong>. És temps de <em>poda en sec</em>, d’escollir quins sarments sobreviuran al següent cicle. Sota terra, les arrels continuen actives, absorbint lentament la saviesa del sòl. Aquest descans és vital per tornar a començar amb força a la primavera.
+    </p>
+
+    <h3 style="margin-top: 2rem; color: var(--fosc);">🌍 I el clima, què?</h3>
+    <p>
+      Els canvis climàtics ja es fan notar: floracions avançades, veremes més primerenques, sequeres imprevisibles. A Vinyes Tribana ens adaptem amb agricultura regenerativa i observació constant. El futur és incert, però el compromís amb la terra és inalterable.
+    </p>
+
+    <p style="margin-top: 2rem; font-weight: bold;">
+      Cuidem el cicle. Cuidem el vi. Perquè cada ampolla que embotellem és un any de vida compartida amb la vinya.
+    </p>
+  </section>
+  <a href="https://www.instagram.com/vinyestribana/" >Segueix-nos a instagram</a>
   <script>
     const gats = document.querySelectorAll('.gat');
     const inputGat = document.getElementById('gatSeleccionat');
@@ -144,7 +196,7 @@
       const nom = e.target[0].value;
       const correu = e.target[1].value;
       const gat = inputGat.value;
-      alert(`Gràcies, ${nom}! Hem reservat una ampolla per a tu com a ${gat}.`);
+      alert(`Gràcies, ${nom}! Em posaré en contacte amb tu el més ràpid possible (David de VINYES TRIBANA) ${gat}.`);
       // Aquí pots afegir la crida a Mailchimp, Google Forms o Airtable
     });
   </script>
