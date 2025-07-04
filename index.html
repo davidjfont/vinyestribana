@@ -120,6 +120,54 @@
       max-width: 25%;
       display: inline-block;
     }
+    .galeria-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .galeria {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .galeria img {
+      height: 100%;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: gray;
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 0.5rem;
+      cursor: pointer;
+      z-index: 1;
+      user-select: none;
+    }
+
+    .arrow.left {
+      left: 0;
+    }
+
+    .arrow.right {
+      right: 0;
+    }
+    #ampliacio img {
+      max-width: calc(100% - 50px);
+      max-height: calc(100% - 50px);
+      object-fit: contain;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -135,9 +183,26 @@
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd3l9mwutmuDLsZ4prTBUaRCAfE_q4M5xo-q-4ggYn5snuYiw/viewform?embedded=true" width="100%" ax-width="640" height="1080" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
 
     <div class="mockup">
-      <img src="vinyestribana002.png" alt="Ampolla rebel – Els 4 Gats" />
-      <img src="images.png" class="logo" />
+        <img src="galeria/vinyestribana000.png" alt="Ampolla responsable – Vinyes Tribana" />
+        <img src="images.png" class="logo" />
+        <div class="galeria-container">
+    <div class="arrow left" onclick="scrollGaleria(-1)">&#10094;</div>
+
+    <div class="galeria" id="galeria">
+      <img src="galeria/vinyestribana001.png" alt="Imatge 1" onclick="ampliaImatge(this)" />
+      <img src="galeria/vinyestribana002.png" alt="Imatge 2" onclick="ampliaImatge(this)" />
+      <img src="galeria/vinyestribana003.png" alt="Imatge 3" onclick="ampliaImatge(this)" />
+      <img src="galeria/vinyestribana004.png" alt="Imatge 3" onclick="ampliaImatge(this)" />
+      <!-- afegeix més imatges -->
     </div>
+
+    <div class="arrow right" onclick="scrollGaleria(1)">&#10095;</div>
+  </div>
+
+  <!-- Ampliació -->
+  <div id="ampliacio" onclick="tancaImatge()">
+    <img id="img-ampliada" />
+  </div>
   </main>
   <section style="max-width: 800px; padding: 2rem; text-align: left; font-size: 1.1rem;">
     <h2 style="font-size: 2rem; color: var(--vermell); margin-bottom: 1rem;">Les estacions del vi</h2>
@@ -199,6 +264,26 @@
       alert(`Gràcies, ${nom}! Em posaré en contacte amb tu el més ràpid possible (David de VINYES TRIBANA) ${gat}.`);
       // Aquí pots afegir la crida a Mailchimp, Google Forms o Airtable
     });
+
+    function scrollGaleria(direction) {
+      const galeria = document.getElementById("galeria");
+      const scrollAmount = 300;
+      galeria.scrollBy({
+        left: direction * scrollAmount,
+        behavior: "smooth"
+      });
+    }
+
+    function ampliaImatge(img) {
+      const ampliacio = document.getElementById("ampliacio");
+      const imgAmpliada = document.getElementById("img-ampliada");
+      imgAmpliada.src = img.src;
+      ampliacio.style.display = "flex";
+    }
+
+    function tancaImatge() {
+      document.getElementById("ampliacio").style.display = "none";
+    }
   </script>
 </body>
 </html>
